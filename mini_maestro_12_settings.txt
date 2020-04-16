@@ -1,0 +1,65 @@
+<!--Pololu Maestro servo controller settings file, http://www.pololu.com/catalog/product/1350-->
+<UscSettings version="1">
+  <NeverSuspend>false</NeverSuspend>
+  <SerialMode>UART_FIXED_BAUD_RATE</SerialMode>
+  <FixedBaudRate>9600</FixedBaudRate>
+  <SerialTimeout>0</SerialTimeout>
+  <EnableCrc>false</EnableCrc>
+  <SerialDeviceNumber>12</SerialDeviceNumber>
+  <SerialMiniSscOffset>0</SerialMiniSscOffset>
+  <Channels MiniMaestroServoPeriod="80000" ServoMultiplier="1">
+    <!--Period = 20 ms-->
+    <!--Channel 0-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Ignore" home="3968" speed="0" acceleration="0" neutral="3968" range="1905" />
+    <!--Channel 1-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Ignore" home="3968" speed="0" acceleration="0" neutral="3968" range="1905" />
+    <!--Channel 2-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Ignore" home="3968" speed="0" acceleration="0" neutral="3968" range="1905" />
+    <!--Channel 3-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Ignore" home="3968" speed="0" acceleration="0" neutral="3968" range="1905" />
+    <!--Channel 4-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Ignore" home="3968" speed="0" acceleration="0" neutral="3968" range="1905" />
+    <!--Channel 5-->
+    <Channel name="" mode="Servo" min="3968" max="8000" homemode="Ignore" home="3968" speed="0" acceleration="0" neutral="3968" range="1905" />
+    <!--Channel 6-->
+    <Channel name="" mode="Input" min="0" max="1024" homemode="Ignore" home="0" speed="0" acceleration="0" neutral="1024" range="1905" />
+    <!--Channel 7-->
+    <Channel name="" mode="Input" min="0" max="1024" homemode="Ignore" home="0" speed="0" acceleration="0" neutral="1024" range="1905" />
+    <!--Channel 8-->
+    <Channel name="" mode="Input" min="0" max="1024" homemode="Ignore" home="0" speed="0" acceleration="0" neutral="1024" range="1905" />
+    <!--Channel 9-->
+    <Channel name="" mode="Input" min="0" max="1024" homemode="Ignore" home="0" speed="0" acceleration="0" neutral="1024" range="1905" />
+    <!--Channel 10-->
+    <Channel name="" mode="Input" min="0" max="1024" homemode="Ignore" home="0" speed="0" acceleration="0" neutral="1024" range="1905" />
+    <!--Channel 11-->
+    <Channel name="" mode="Input" min="0" max="1024" homemode="Ignore" home="0" speed="0" acceleration="0" neutral="1024" range="1905" />
+  </Channels>
+  <Sequences />
+  <Script ScriptDone="false">begin
+  0  6 set_position
+  1  7 set_position
+  2  8 set_position
+  3  9 set_position
+  4 10 set_position
+  5 11 set_position
+repeat
+
+# Args: &lt;servo&gt; &lt;input&gt;
+sub set_position
+  get_position
+
+  # If pot is at 0, center servo; otherwise, interpolate
+  dup
+  0 equals
+  if
+    drop 6000
+  else
+    4 times 4000 plus
+  endif
+
+  swap
+  servo
+
+  return
+</Script>
+</UscSettings>
