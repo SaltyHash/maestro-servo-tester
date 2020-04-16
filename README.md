@@ -1,5 +1,5 @@
 # maestro-servo-tester
-Turns a [Pololu Maestro](https://www.pololu.com/category/102/maestro-usb-servo-controllers) into a servo tester.
+Turn a [Pololu Maestro](https://www.pololu.com/category/102/maestro-usb-servo-controllers) into a servo tester.
 
 The script and settings in the file `mini_maestro_12_settings.txt` were created for the [Pololu Mini Maestro 12](https://www.pololu.com/product/1352), but the script should be portable across the other Maestro models as well.
 
